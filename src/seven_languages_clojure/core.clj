@@ -11,7 +11,8 @@
         :else (throw (Exception. (str "Don't recognise type: " (type col))))))
 
 (defmacro unless [condition a b]
-  (if condition
-      b
-      a))
+  (list 'if
+        condition
+        b
+        a))
 
