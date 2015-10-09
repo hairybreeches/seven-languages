@@ -2,3 +2,11 @@
 
 (defn longer? [string length]
   (> (count string) length))
+
+
+(defn collection-type [col]
+  (cond (instance? clojure.lang.PersistentArrayMap col) :map
+        (instance? clojure.lang.PersistentVector col) :vector
+        (instance? clojure.lang.PersistentList col) :list
+        :else (throw (Exception. (str "Don't recognise type: " (type col))))))
+
