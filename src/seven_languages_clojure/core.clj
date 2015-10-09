@@ -1,6 +1,4 @@
 (ns seven-languages-clojure.core)
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
+(defn longer? [string length]
+  (> (count string) length))

@@ -1,7 +1,9 @@
 (ns seven-languages-clojure.core-test
-  (:require [clojure.test :refer :all]
-            [seven-languages-clojure.core :refer :all]))
+  (:use seven-languages-clojure.core)
+  (:use clojure.test))
 
-(deftest a-test
-  (testing "FIXME, I fail."
-    (is (= 0 1))))
+(deftest know-when-string-is-longer
+  (is (longer? "steve" 4)))
+
+(deftest know-when-string-is-not-longer
+  (is (not (longer? "francois" 8))))
