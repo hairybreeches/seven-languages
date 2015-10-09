@@ -40,3 +40,13 @@
   (unless (throw (Exception. "Should not evaluate the condition unless the function is called"))
           2
           3))
+
+(deftest can-roll-a-die
+  (let [die (.roll (seven_languages_clojure.core.SixSidedDie. 0))]
+    (is (<= (.spots die) 6))
+    (is (>= (.spots die) 1))))
+
+(deftest can-add-bonus-to-a-die
+  (let [die (.increment (seven_languages_clojure.core.SixSidedDie. 3) 5)]
+    (is (= (.spots die) 8))))
+

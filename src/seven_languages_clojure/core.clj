@@ -16,3 +16,19 @@
         b
         a))
 
+
+(defprotocol Die
+  (spots[d])
+  (roll[d])
+  (increment[d bonus]))
+
+
+(defrecord SixSidedDie[value]
+  Die
+  (spots [_]  value)
+  (roll [_] (SixSidedDie. (inc (int (rand 6)))))
+  (increment [_ bonus] (SixSidedDie. (+ value bonus))))
+
+
+
+
