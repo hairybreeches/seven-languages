@@ -19,3 +19,24 @@
 
 (deftest throws-when-unknown-type
   (is (thrown? Exception (collection-type #{}))))
+
+(defn returns-3 []
+  (unless true
+          (throw (Exception. "Should not evaluate this branch of code"))
+          3))
+
+(deftest can-evaluate-unless-when-true
+  (is (= (returns-3) 3)))
+
+(defn returns-5 []
+  (unless false
+          5
+          (throw (Exception. "Should not evaluate this branch of code"))))
+
+(deftest can-evaluate-unless-when-false
+  (is (= (returns-5) 5)))
+
+(defn writing-unless-doesnt-evaluate-condition []
+  (unless (throw (Exception. "Should not evaluate the condition unless the function is called"))
+          2
+          3))
