@@ -49,3 +49,8 @@
 (deftest can-add-bonus-to-a-die
   (let [die (.increment (seven_languages_clojure.exercises.SixSidedDie. 3) 5)]
     (is (= (.spots die) 8))))
+
+
+(deftest can-modify-accounts
+  (do (transfer-money 6 6 2)
+    (is (= @accounts [1 2 -3 5 8 13 -15 -16 -3]))))
