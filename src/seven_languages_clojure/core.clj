@@ -3,6 +3,21 @@
 (def queue (agent 0))
 (def barber (agent 0))
 
+;timing
+(def start (atom 0))
+
+(defn get-time
+  []
+  (System/currentTimeMillis))
+
+(defn set-start
+  []
+  (reset! start (get-time)))
+
+(defn elapsed
+  []
+  (- (get-time) @start))
+
 ;code for shaving people in the queue
 (defn finish-shaving
   [length]
@@ -40,6 +55,7 @@
 
 (defn calculate-shaves
   []
+  (set-start)
   (.start (Thread. run-queue))
   (Thread/sleep 10000)
   @barber)
