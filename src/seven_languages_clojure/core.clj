@@ -21,10 +21,14 @@
 ;code for shaving people in the queue
 (defn finish-shaving
   [length]
-  (dec length))
+  (if (= length 0)
+      (throw (Exception. "Trying to finish shaving a customer who isn't there!"))
+      (dec length)))
 
 (defn shave-customer
   [already-shaved]
+  (if (<= @queue 0)
+    (throw (Exception. "Trying to start shaving a customer who isn't there!")))
   (Thread/sleep 20)
   (send queue finish-shaving)
   (inc already-shaved))
