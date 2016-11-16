@@ -42,4 +42,19 @@ myreverse (h:t) = reverse t ++ [h]
 pairs list = [(x,y) | x <- list, y <- list, x < y]
 
 multiplication max = [ (x,y,x*y) | x<-[1 .. max], y <- [1..max]]
+
+colourmap colours = [(alabama, florida, georgia, mississippi, tennessee) | 
+  alabama <- colours, 
+  florida <- colours, 
+  georgia <- colours, 
+  mississippi <- colours, 
+  tennessee <- colours, 
+  mississippi /= tennessee, 
+  mississippi /= alabama, 
+  alabama /= tennessee, 
+  alabama /= mississippi, 
+  alabama /= georgia, 
+  alabama /= florida, 
+  georgia /= florida, 
+  georgia /= tennessee]
  
