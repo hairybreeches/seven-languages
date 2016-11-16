@@ -35,4 +35,7 @@ allEven1 list = [x | x <- list, even x]
 
 allEven2 :: [Integer] -> [Integer]
 allEven2 list = filter even list
+
+myreverse [] = []
+myreverse (h:t) = reverse t ++ [h]
  
