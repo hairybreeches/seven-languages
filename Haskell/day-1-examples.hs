@@ -38,4 +38,8 @@ allEven2 list = filter even list
 
 myreverse [] = []
 myreverse (h:t) = reverse t ++ [h]
+
+pairs list = [(x,y) | x <- list, y <- list, x < y]
+
+multiplication max = [ (x,y,x*y) | x<-[1 .. max], y <- [1..max]]
  
