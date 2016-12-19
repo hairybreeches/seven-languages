@@ -18,4 +18,10 @@ exampleLookup = Map.fromList
             (8, Map.singleton 0 (Map.singleton 3 "Easter Monday"))]),
         
         (3, Map.singleton 0 (Map.singleton 0 (Map.singleton 5 "Spring")))]
+        
+getChristmasDay :: BadAssLookup -> Maybe String
+getChristmasDay lookup = Map.lookup 2 lookup >>= Map.lookup 5 >>= Map.lookup 1 >>= Map.lookup 2
+
+getChristmasDayReplacement :: BadAssLookup -> Maybe String
+getChristmasDayReplacement lookup = Map.lookup 2 lookup >>= Map.lookup 7 >>= Map.lookup 1 >>= Map.lookup 2
 
