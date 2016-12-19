@@ -37,4 +37,10 @@ everyFifth x = [x, x+5..]
 
 everyEighth :: Int -> Int -> [Int]
 everyEighth x y = zipWith (+) (everyThird x) (everyFifth y)
+
+halve :: Double -> Double
+halve = (/2)
+
+appendNewLine :: String -> String
+appendNewLine = (++ "\n")
   
