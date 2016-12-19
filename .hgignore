@@ -12,3 +12,4 @@ pom.xml.asc
 .git/**
 .lein-failures
 Elm/elm-stuff/packages/**
+Elm/elm-stuff/build-artifacts/**
