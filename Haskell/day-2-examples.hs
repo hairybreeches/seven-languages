@@ -29,5 +29,12 @@ readMoneyStringIterator (h:t) soFar
 readMoneyString :: String -> Double 
 readMoneyString string = readMoneyStringIterator string 0
 
-  
+everyThird :: Int -> [Int]
+everyThird x = [x, x+3..]
+
+everyFifth :: Int -> [Int]
+everyFifth x = [x, x+5..]
+
+everyEighth :: Int -> Int -> [Int]
+everyEighth x y = zipWith (+) (everyThird x) (everyFifth y)
   
